@@ -1,0 +1,83 @@
+body{
+	background: url("../images/bg.jpg") no-repeat center center;
+	background-size: cover;
+	text-align: center;
+	color: blue;
+	font-size: 24px;
+}
+
+h1{
+	font-size: 200%;
+	padding: 10px;
+	margin: 15px;
+}
+
+.btn{
+	background: #00ff99;
+	border:1px #a5a5a5a5;
+	font: inherit;
+	outline:none;
+	line-height: 1;
+	margin: 1.2em;
+	padding: 1em 2em;
+	transition: 0.25s;
+	border-radius: 5px;
+	/*font-family: 'Permanent Marker', cursive;*/
+	color: blue;
+}
+
+.start-button:hover, 
+.start-buton:focus{
+	box-shadow: inset 0 0 0 2em hsl(0, 50%, 80%);
+}
+
+.answer-button:hover, 
+.answer-buton:focus{
+	box-shadow: inset 0 0 0 2em hsl(0, 50%, 80%);
+}
+
+.container{
+	width:90%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.game-window{
+	font-family: 'Gloria Hallelujah', cursive;
+	width: 90%;
+	height: 1000px;
+	background: url("../images/containerbg.png") no-repeat center center;
+	background-size: cover;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	/*text-shadow: 2px 2px #868686;*/
+}
+
+
+.title{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.logo{
+	height: 350px;
+	width: 350px;
+	margin: 30px auto;
+	box-shadow:
+    0 0 0 10px hsl(0, 94%, 51%),
+    0 0 0 15px hsl(0, 0%, 90%);
+	background: #f6f8f9; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #f6f8f9 0%, #e5ebee 38%, #d7dee3 51%, #f5f7f9 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #f6f8f9 0%,#e5ebee 38%,#d7dee3 51%,#f5f7f9 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #f6f8f9 0%,#e5ebee 38%,#d7dee3 51%,#f5f7f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	border-radius: 50%;
+}
+
+
+

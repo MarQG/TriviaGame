@@ -192,11 +192,11 @@ $("document").ready(function(){
 		startButton.text("Start");
 		startButton.attr("id", "start-button");
 		startButton.addClass("btn start-button");
-		$("#question-window").append(startButton);
+		$(".title").append(startButton);
 		loadQuestion();
 		// Add a click listener to the start button to start the game
 		$("#start-button").on("click",function(){
-			
+			$("#start-button").hide();
 			displayQuestion();
 		});
 	}
@@ -356,15 +356,8 @@ $("document").ready(function(){
 		score.html(	'<p> Right Answers: ' + right + '</p>' +
 					'<p> Wrong Answers: ' + wrong + '</p>' +
 					'<p> Unanswered: ' + unanswered + '</p>');
-		var startButton = $("<button>");
-
-
-		startButton.text("Start Over?");
-		startButton.attr("id", "start-button");
-		startButton.addClass("btn start-button");
-		$("#question-window").append(startButton);
-		
-		
+		$("#start-button").text("Start Over?");
+		$("#start-button").show();
 		right = 0;
 		wrong = 0;
 		unanswered = 0;
@@ -374,10 +367,10 @@ $("document").ready(function(){
 		isGameOver = false;
 
 		loadQuestion();
-		$("#start-button").on("click",function(){
+		$("#start-button").off().on("click",function(){
+			$("#start-button").hide();
 			score.html("");
 			displayQuestion();
-			console.log("reset complete");
 		});
 	}
 
@@ -430,10 +423,10 @@ $("document").ready(function(){
 		loadQuestion();
 
 
-		var catDisp = $("<h1>");
-		catDisp.text("Category: " + categoryName);
-		$("#category").html(catDisp);
-		var question = $("<p>");
+		// var catDisp = $("<h1>");
+		// catDisp.text("Category: " + categoryName);
+		// $("#category").html(catDisp);
+		var question = $("<h1>");
 
 		question.addClass("question");
 		question.text(currentQuestion);
@@ -456,19 +449,19 @@ $("document").ready(function(){
 			var clickAnswer = $(this).attr("data-answer");
 			timerIsRunning1 = false;
 			stopTimer();
-
+			$("#question-window").html("");
+			$(".logo").attr("src", answerImg);
 			$("#answers-window").html(
-								'<p>The Answer is ' + rightAnswer + '!</p>' +
-								'<img src="'+ answerImg + '" >');
+								'<h1>The Answer is ' + rightAnswer + '!</h1>');
 			$("#timer").html("");
 			if(clickAnswer === rightAnswer){
 				right++;
 				showAnswerTimer();
-				$("#timer").append("<p> Correct! </p>");
+				$("#answers-window").prepend("<h1> Correct! </h1>");
 			} else {
 				wrong++;
 				showAnswerTimer();
-				$("#timer").append("<p> Wrong! </p>");
+				$("#answers-window").prepend("<h1> Wrong! </h1>");
 			}
 
 		});
@@ -488,9 +481,9 @@ $("document").ready(function(){
 		$("#timer").html('<p>Time Remaining: '+ timer +'</p>');
 		if(timer === 0){
 			unanswered++;
-			$("#timer").html(
-								'<p>The Answer is ' + rightAnswer + '!</p>' +
-								'<img src="'+ answerImg + '" >');
+			$("#question-window").html("");
+			$(".logo").attr("src", answerImg);
+			$("#answers-window").html('<h1>The Answer is ' + rightAnswer + '!</h1>');
 			timerIsRunning1 = false;
 			stopTimer();
 			showAnswerTimer();
@@ -513,10 +506,10 @@ $("document").ready(function(){
 	}
 
 	function showAnswer(){
-
 		timer--;
 
 		if(timer === 0){
+			$(".logo").attr("src","assets/images/logo.svg");
 			if(questionsArray.length === 0){
 				isGameOver = true;
 			} 
