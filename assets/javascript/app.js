@@ -157,7 +157,7 @@ $("document").ready(function(){
 								]
 				}
 
-
+	// ====== Question Processing Variables ======
 	var category = [];
 	var categoryName = "";
 	var questionsArray = [];
@@ -165,13 +165,8 @@ $("document").ready(function(){
 	var rightAnswer = "";
 	var answersArray = [];
 	var answerImg = "";
-	var qstn = { 
-		category: "",
-		question: "",
-		rightAnswer: "",
-		wrongAnswers: [],
-		image: ""
-	};
+
+	// ====== Game Variables ======
 	var numberOfQuestions = 8;
 	var timer = 0;
 	var right = 0;
@@ -184,7 +179,11 @@ $("document").ready(function(){
 
 
 
-
+	// ====== startGame() ======
+	/*
+		Description: 	Displays the start button and loads the inital questions
+						into the game.
+	*/
 	function startGame(){
 		
 		//Display the Start Button
@@ -201,6 +200,11 @@ $("document").ready(function(){
 		});
 	}
 
+	// ====== resetGame() ======
+	/*
+		Description: 	Resets all game variables and displays the start button
+						TODO: Fix soft copy of trivia into category later to keep from having to reset trivia.
+	*/
 	function resetGame(){
 
 		trivia = {
@@ -374,6 +378,11 @@ $("document").ready(function(){
 		});
 	}
 
+	// ====== loadQuestion() ======
+	/*
+		Description: 	Pulls a set of questions from the trivia object
+						for each play through.
+	*/
 	function loadQuestion(){
 		
 		if(questionsLoaded === false){
@@ -417,6 +426,10 @@ $("document").ready(function(){
 
 	}
 
+	// ====== displayQuestion() ======
+	/*
+		Description: 	Grabs a questions and loads it into the game window
+	*/
 	function displayQuestion(){
 		
 		clearQuestion();
@@ -468,6 +481,10 @@ $("document").ready(function(){
 		
 	}
 
+	// ====== startQuestionTimer() ======
+	/*
+		Description: 	Starts the timer for the current question
+	*/
 	function startQuestionTimer(){
 		
 		if(!timerIsRunning1){
@@ -476,6 +493,10 @@ $("document").ready(function(){
 		}
 	}
 
+	// ====== decrementQuestionTimer() ======
+	/*
+		Description: 	Decreases the timer and marks a question unanswered if time runs out
+	*/
 	function decrementQuestionTimer(){
 		timer--;
 		$("#timer").html('<p>Time Remaining: '+ timer +'</p>');
@@ -492,10 +513,18 @@ $("document").ready(function(){
 
 	}
 
+	// ====== stopTimer() ======
+	/*
+		Description: 	Stops the current timer.
+	*/
 	function stopTimer(){
 		clearInterval(intervalId);
 	}
 
+	// ====== showAnswerTimer() ======
+	/*
+		Description: 	Starts the answer timer.
+	*/
 	function showAnswerTimer(){
 		if(!timerIsRunning1){
 			intervalId = setInterval(showAnswer, 1000);
@@ -505,6 +534,11 @@ $("document").ready(function(){
 		}
 	}
 
+
+	// ====== showAnswer() ======
+	/*
+		Description: 	Shows the current answer to the question and checks if there are anymore questions left
+	*/
 	function showAnswer(){
 		timer--;
 
@@ -519,6 +553,10 @@ $("document").ready(function(){
 		}
 	}
 
+	// ====== clearQuestion() ======
+	/*
+		Description: 	Clears the question window for the next question.
+	*/
 	function clearQuestion(){
 		$("#question-window").html("");
 		$("#answers-window").html("");
@@ -526,6 +564,10 @@ $("document").ready(function(){
 
 	}
 
+	// ====== checkIsGameOver() ======
+	/*
+		Description: 	Checks if the game is over and needs to be reset.
+	*/
 	function checkIsGameOver(){
 		if(isGameOver){
 			resetGame();
@@ -534,13 +576,17 @@ $("document").ready(function(){
 		}
 	}
 
+	// ====== randomNumberGenerator() ======
+	/*
+		Description: 	Generates a random number from 0 to the range given.
+	*/
 	function randomNumberGenerator(range){
 		return Math.floor(Math.random() * range);
 	}
 
 
 
-	// Javascript Process
+	// ====== Javascript Process ======
 
 	startGame();
 
