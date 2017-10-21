@@ -2,7 +2,7 @@ $("document").ready(function(){
 
 	/*
 		Trivial Trivia Game
-		Version: 1.0
+		Version: 2.0
 		Description:
 		A Simple Trivia Game
 		This game present the user with 8 random trivia questions. 
@@ -14,148 +14,7 @@ $("document").ready(function(){
 
 	// ====== Global Variables ======
 
-	var trivia = {
-					category: [
-								{
-									name: "Cats",
-									questions: [
-												{
-													question:"How many toes does a cat have on its front paw?",
-													answers: {
-																rightAnswer: "5",
-																wrongAnswers: ["3","4","6"],
-																image: "assets/images/catpaw.gif"
-																}
-												},
-												{
-													question:"How much of a cat's life is spent grooming?",
-													answers: {
-																rightAnswer: "30%",
-																wrongAnswers: ["20%","25%","50%"],
-																image: "assets/images/catgroom.gif"
-																}
-												},
-												{
-													question:"A cat has how many whiskers, on average?",
-													answers: {
-																rightAnswer: "24",
-																wrongAnswers: ["16","8","12"],
-																image: "assets/images/catwhisk.gif"
-																}
-												},
-												{
-													question:"A term for a group of cats is:",
-													answers: {
-																rightAnswer: "Clowder",
-																wrongAnswers: ["Caggle","Covey","Clutch"],
-																image: "assets/images/catclow.gif"
-																}
-												},
-												{
-													question:"A term for a group of kittens is:",
-													answers: {
-																rightAnswer: "Kindle",
-																wrongAnswers: ["Nook","Kaboodle","Kaggle"],
-																image: "assets/images/catkindle.gif"
-																}
-												},
-												{
-													question:"All of these are the names of cat breeds, EXCEPT",
-													answers: {
-																rightAnswer: "Beauceron",
-																wrongAnswers: ["Birman","Balinese","Burmilla"],
-																image: "assets/images/catbeau.gif"
-																}
-												},
-												{
-													question:"The thick hair around the face of some cats (such as Persians) is called:",
-													answers: {
-																rightAnswer: "Ruff",
-																wrongAnswers: ["Shock","Mane","Pelt"],
-																image: "assets/images/catruff.gif"
-																}
-												},
-												{
-													question:"Cats can't taste this:",
-													answers: {
-																rightAnswer: "Sweet",
-																wrongAnswers: ["Sour","Salt","Bitter"],
-																image: "assets/images/cateat.gif"
-																}
-												},
-												]
-								},
-								{
-									name: "Dogs",
-									questions: [
-												{
-													question:"What is the most common command taught to dogs?",
-													answers: {
-																rightAnswer: "Sit",
-																wrongAnswers: ["Stay","Beg","Dance"],
-																image: "assets/images/dogsit.gif"
-																}
-												},
-												{
-													question:"Which dog yodels instead of barks?",
-													answers: {
-																rightAnswer: "Basenji",
-																wrongAnswers: ["Basset Hound","Otterhound","Komondor"],
-																image: "assets/images/basenji.gif"
-																}
-												},
-												{
-													question:"Through what part of the body do dogs sweat?",
-													answers: {
-																rightAnswer: "Paws",
-																wrongAnswers: ["Mouth","Ears","Nose"],
-																image: "assets/images/dogpaw.gif"
-																}
-												},
-												{
-													question:"Which TV series had a dog named K9 who was also a robot?",
-													answers: {
-																rightAnswer: "Doctor Who",
-																wrongAnswers: ["Full House","Star Trek","Law & Order"],
-																image: "assets/images/dogk9.gif"
-																}
-												},
-												{
-													question:"The first dogs registered in the American Kennel Club belonged to what group?",
-													answers: {
-																rightAnswer: "Sporting",
-																wrongAnswers: ["Herding","Working","Hound"],
-																image: "assets/images/dogsport.gif"
-																}
-												},
-												{
-													question:"What breed of dog is the smallest used in hunting?",
-													answers: {
-																rightAnswer: "Miniature Dachshund",
-																wrongAnswers: ["Toy Poodle","Chihuahua","Smooth Fox Terrier"],
-																image: "assets/images/dogdach.gif"
-																}
-												},
-												{
-													question:"What is the most popular breed of dog, according to the American Kennel Club's registrations?",
-													answers: {
-																rightAnswer: "Labrador",
-																wrongAnswers: ["Beagle","Golden Retriever","German Shepherd"],
-																image: "assets/images/doglab.gif"
-																}
-												},
-												{
-													question:"What is the favorite dog breed of the Queen of England?",
-													answers: {
-																rightAnswer: "Corgi",
-																wrongAnswers: ["Basenji","Poodle","Pomeranian"],
-																image: "assets/images/dogcorg.gif"
-																}
-												},
-												]
-								},
-								]
-				}
+	var trivia = {};
 
 	// ====== Question Processing Variables ======
 	var category = [];
@@ -207,148 +66,7 @@ $("document").ready(function(){
 	*/
 	function resetGame(){
 
-		trivia = {
-					category: [
-								{
-									name: "Cats",
-									questions: [
-												{
-													question:"How many toes does a cat have on its front paw?",
-													answers: {
-																rightAnswer: "5",
-																wrongAnswers: ["3","4","6"],
-																image: "assets/images/catpaw.gif"
-																}
-												},
-												{
-													question:"How much of a cat's life is spent grooming?",
-													answers: {
-																rightAnswer: "30%",
-																wrongAnswers: ["20%","25%","50%"],
-																image: "assets/images/catgroom.gif"
-																}
-												},
-												{
-													question:"A cat has how many whiskers, on average?",
-													answers: {
-																rightAnswer: "24",
-																wrongAnswers: ["16","8","12"],
-																image: "assets/images/catwhisk.gif"
-																}
-												},
-												{
-													question:"A term for a group of cats is:",
-													answers: {
-																rightAnswer: "Clowder",
-																wrongAnswers: ["Caggle","Covey","Clutch"],
-																image: "assets/images/catclow.gif"
-																}
-												},
-												{
-													question:"A term for a group of kittens is:",
-													answers: {
-																rightAnswer: "Kindle",
-																wrongAnswers: ["Nook","Kaboodle","Kaggle"],
-																image: "assets/images/catkindle.gif"
-																}
-												},
-												{
-													question:"All of these are the names of cat breeds, EXCEPT",
-													answers: {
-																rightAnswer: "Beauceron",
-																wrongAnswers: ["Birman","Balinese","Burmilla"],
-																image: "assets/images/catbeau.gif"
-																}
-												},
-												{
-													question:"The thick hair around the face of some cats (such as Persians) is called:",
-													answers: {
-																rightAnswer: "Ruff",
-																wrongAnswers: ["Shock","Mane","Pelt"],
-																image: "assets/images/catruff.gif"
-																}
-												},
-												{
-													question:"Cats can't taste this:",
-													answers: {
-																rightAnswer: "Sweet",
-																wrongAnswers: ["Sour","Salt","Bitter"],
-																image: "assets/images/cateat.gif"
-																}
-												},
-												]
-								},
-								{
-									name: "Dogs",
-									questions: [
-												{
-													question:"What is the most common command taught to dogs?",
-													answers: {
-																rightAnswer: "Sit",
-																wrongAnswers: ["Stay","Beg","Dance"],
-																image: "assets/images/dogsit.gif"
-																}
-												},
-												{
-													question:"Which dog yodels instead of barks?",
-													answers: {
-																rightAnswer: "Basenji",
-																wrongAnswers: ["Basset Hound","Otterhound","Komondor"],
-																image: "assets/images/basenji.gif"
-																}
-												},
-												{
-													question:"Through what part of the body do dogs sweat?",
-													answers: {
-																rightAnswer: "Paws",
-																wrongAnswers: ["Mouth","Ears","Nose"],
-																image: "assets/images/dogpaw.gif"
-																}
-												},
-												{
-													question:"Which TV series had a dog named K9 who was also a robot?",
-													answers: {
-																rightAnswer: "Doctor Who",
-																wrongAnswers: ["Full House","Star Trek","Law & Order"],
-																image: "assets/images/dogk9.gif"
-																}
-												},
-												{
-													question:"The first dogs registered in the American Kennel Club belonged to what group?",
-													answers: {
-																rightAnswer: "Sporting",
-																wrongAnswers: ["Herding","Working","Hound"],
-																image: "assets/images/dogsport.gif"
-																}
-												},
-												{
-													question:"What breed of dog is the smallest used in hunting?",
-													answers: {
-																rightAnswer: "Miniature Dachshund",
-																wrongAnswers: ["Toy Poodle","Chihuahua","Smooth Fox Terrier"],
-																image: "assets/images/dogdach.gif"
-																}
-												},
-												{
-													question:"What is the most popular breed of dog, according to the American Kennel Club's registrations?",
-													answers: {
-																rightAnswer: "Labrador",
-																wrongAnswers: ["Beagle","Golden Retriever","German Shepherd"],
-																image: "assets/images/doglab.gif"
-																}
-												},
-												{
-													question:"What is the favorite dog breed of the Queen of England?",
-													answers: {
-																rightAnswer: "Corgi",
-																wrongAnswers: ["Basenji","Poodle","Pomeranian"],
-																image: "assets/images/dogcorg.gif"
-																}
-												},
-												]
-								},
-								]
-				}
+	
 
 		clearQuestion();
 
@@ -374,6 +92,7 @@ $("document").ready(function(){
 		$("#start-button").off().on("click",function(){
 			$("#start-button").hide();
 			score.html("");
+
 			displayQuestion();
 		});
 	}
@@ -386,6 +105,149 @@ $("document").ready(function(){
 	function loadQuestion(){
 		
 		if(questionsLoaded === false){
+
+			trivia = {
+				category: [
+				{
+					name: "Cats",
+					questions: [
+					{
+						question:"How many toes does a cat have on its front paw?",
+						answers: {
+							rightAnswer: "5",
+							wrongAnswers: ["3","4","6"],
+							image: "assets/images/catpaw.gif"
+							}
+					},
+					{
+						question:"How much of a cat's life is spent grooming?",
+						answers: {
+							rightAnswer: "30%",
+							wrongAnswers: ["20%","25%","50%"],
+							image: "assets/images/catgroom.gif"
+							}
+					},
+					{
+						question:"A cat has how many whiskers, on average?",
+						answers: {
+							rightAnswer: "24",
+							wrongAnswers: ["16","8","12"],
+							image: "assets/images/catwhisk.gif"
+							}
+					},
+					{
+						question:"A term for a group of cats is:",
+						answers: {
+							rightAnswer: "Clowder",
+							wrongAnswers: ["Caggle","Covey","Clutch"],
+							image: "assets/images/catclow.gif"
+							}
+					},
+					{
+						question:"A term for a group of kittens is:",
+						answers: {
+							rightAnswer: "Kindle",
+							wrongAnswers: ["Nook","Kaboodle","Kaggle"],
+							image: "assets/images/catkindle.gif"
+							}
+					},
+					{
+						question:"All of these are the names of cat breeds, EXCEPT",
+						answers: {
+							rightAnswer: "Beauceron",
+							wrongAnswers: ["Birman","Balinese","Burmilla"],
+							image: "assets/images/catbeau.gif"
+							}
+					},
+					{
+						question:"The thick hair around the face of some cats (such as Persians) is called:",
+						answers: {
+							rightAnswer: "Ruff",
+							wrongAnswers: ["Shock","Mane","Pelt"],
+							image: "assets/images/catruff.gif"
+							}
+					},
+					{
+						question:"Cats can't taste this:",
+						answers: {
+							rightAnswer: "Sweet",
+							wrongAnswers: ["Sour","Salt","Bitter"],
+							image: "assets/images/cateat.gif"
+							}
+					},
+					]
+				},
+				{
+					name: "Dogs",
+					questions: [
+					{
+						question:"What is the most common command taught to dogs?",
+						answers: {
+							rightAnswer: "Sit",
+							wrongAnswers: ["Stay","Beg","Dance"],
+							image: "assets/images/dogsit.gif"
+							}
+					},
+					{
+						question:"Which dog yodels instead of barks?",
+						answers: {
+							rightAnswer: "Basenji",
+							wrongAnswers: ["Basset Hound","Otterhound","Komondor"],
+							image: "assets/images/basenji.gif"
+							}
+					},
+					{
+						question:"Through what part of the body do dogs sweat?",
+						answers: {
+							rightAnswer: "Paws",
+							wrongAnswers: ["Mouth","Ears","Nose"],
+							image: "assets/images/dogpaw.gif"
+							}
+					},
+					{
+						question:"Which TV series had a dog named K9 who was also a robot?",
+						answers: {
+							rightAnswer: "Doctor Who",
+							wrongAnswers: ["Full House","Star Trek","Law & Order"],
+							image: "assets/images/dogk9.gif"
+							}
+					},
+					{
+						question:"The first dogs registered in the American Kennel Club belonged to what group?",
+						answers: {
+							rightAnswer: "Sporting",
+							wrongAnswers: ["Herding","Working","Hound"],
+							image: "assets/images/dogsport.gif"
+							}
+					},
+					{
+						question:"What breed of dog is the smallest used in hunting?",
+						answers: {
+							rightAnswer: "Miniature Dachshund",
+							wrongAnswers: ["Toy Poodle","Chihuahua","Smooth Fox Terrier"],
+							image: "assets/images/dogdach.gif"
+							}
+					},
+					{
+						question:"What is the most popular breed of dog, according to the American Kennel Club's registrations?",
+						answers: {
+							rightAnswer: "Labrador",
+							wrongAnswers: ["Beagle","Golden Retriever","German Shepherd"],
+							image: "assets/images/doglab.gif"
+							}
+					},
+					{
+						question:"What is the favorite dog breed of the Queen of England?",
+						answers: {
+							rightAnswer: "Corgi",
+							wrongAnswers: ["Basenji","Poodle","Pomeranian"],
+							image: "assets/images/dogcorg.gif"
+							}
+					},
+					]
+				},
+				]
+			}
 			var randomCategory = randomNumberGenerator(trivia.category.length);
 			category = $.extend({}, trivia.category[randomCategory]);
 			for(var i = 0; i < numberOfQuestions; i++){
