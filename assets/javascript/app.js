@@ -391,7 +391,7 @@ $("document").ready(function(){
 		if(!timerIsRunning1){
 			intervalId = setInterval(showAnswer, 1000);
 			timerIsRunning1 = true;
-			timer = 5;
+			timer = 8;
 			
 		}
 	}
